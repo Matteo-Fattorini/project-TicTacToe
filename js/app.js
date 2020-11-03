@@ -81,6 +81,8 @@ $(document).ready(function () {
           ecsGen.className = "fa fa-times fa-10x ecs";
           $(this).append(ecsGen);
           currentPlayer = playerTwo;
+          
+
         }
       } else {
         if ($(this).children().length == 0) {
@@ -90,14 +92,15 @@ $(document).ready(function () {
           circleGen.className = "fa fa-circle fa-8x circle";
           $(this).append(circleGen);
           currentPlayer = playerOne;
+          
         }
       }
-      
-
-      checkWinner();
-      if (counter == 9) {
+      if (counter > 8) {
         gameOver = true;
       }
+      console.log(counter);
+      checkWinner();
+      
     }
   });
 
@@ -107,4 +110,16 @@ $(document).ready(function () {
     $(".board").css("opacity", "1");
     counter = 0;
   });
+
+setInterval(function () {
+  if (counter == 9) {
+    gameOver = true;
+  }
+  if (gameOver) {
+    $(".info-text").text("Partita Finita, refresha per rigiocare!");
+    $(".board").css("opacity", "0.4");
+  }
+}, 100);
+  
 });
+
