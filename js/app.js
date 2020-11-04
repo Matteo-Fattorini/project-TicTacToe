@@ -45,9 +45,13 @@ $(document).ready(function () {
     if (winarrEcs.length >= 3) {
       for (var i = 0; i < winCombos.length; i++) {
         if (checker(winarrEcs, winCombos[i])) {
+
           $(".title").text("HA VINTO GIOCATORE 1!");
           $(".info-text").text("R.I.P giocatore 2");
           $(".board").css("opacity", "0.4");
+           for (var z = 0; z < winCombos[i].length; z++) {
+             $(boardBoxClassEl[winCombos[i][z]]).css("color", "red");
+           }
           gameOver = true;
         }
       }
@@ -55,9 +59,15 @@ $(document).ready(function () {
     if (winarrCircle.length >= 3) {
       for (var i = 0; i < winCombos.length; i++) {
         if (checker(winarrCircle, winCombos[i])) {
+          
           $(".title").text("HA VINTO GIOCATORE 2!");
           $(".info-text").text("R.I.P giocatore 1");
           $(".board").css("opacity", "0.4");
+          for (var z = 0; z < winCombos[i].length; z++){
+              console.log(winCombos[z]);
+              $(boardBoxClassEl[winCombos[i][z]]).css("color", "red");
+            
+          }
           gameOver = true;
         }
       }
@@ -98,7 +108,7 @@ $(document).ready(function () {
       if (counter > 8) {
         gameOver = true;
       }
-      console.log(counter);
+      
       checkWinner();
       
     }
@@ -110,6 +120,9 @@ $(document).ready(function () {
     $(".board").css("opacity", "1");
     counter = 0;
     $(".title").text("GIOCA A TIC TAC TOE!");
+    for (var i = 0; i < boardBoxClassEl.length; i++){
+      $(boardBoxClassEl[i]).css("color", "white");
+    }
   });
 
 setInterval(function () {
