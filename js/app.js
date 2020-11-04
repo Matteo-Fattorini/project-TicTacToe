@@ -109,6 +109,7 @@ $(document).ready(function () {
     gameOver = false;
     $(".board").css("opacity", "1");
     counter = 0;
+    $(".title").text("GIOCA A TIC TAC TOE!");
   });
 
 setInterval(function () {
